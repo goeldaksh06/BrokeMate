@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Login - BrokeMate</title>
+    <style>
+        body { font-family: sans-serif; background-color: #0D1117; color: #F0F6FC; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .auth-card { background-color: #161B22; padding: 40px; border-radius: 15px; width: 100%; max-width: 400px; }
+        h1 { text-align: center; color: #8A2BE2; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; }
+        input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #30363D; background-color: #010409; color: #F0F6FC; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; border-radius: 8px; border: none; background-color: #8A2BE2; color: #fff; font-weight: bold; cursor: pointer; }
+        p { text-align: center; } a { color: #8A2BE2; }
+    </style>
+</head>
+<body>
+    <div class="auth-card">
+        <h1>Login to BrokeMate</h1>
+        <div class="form-group"><label for="email">Email</label><input type="email" id="email" required></div>
+        <div class="form-group"><label for="password">Password</label><input type="password" id="password" required></div>
+        <button onclick="loginUser()">Login</button>
+        <p>Don't have an account? <a href="/register.html">Register</a></p>
+    </div>
+    <script>
+        async function loginUser() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+            if (response.ok) { window.location.href = '/'; }
+            else { alert('Login failed. Please check your email and password.'); }
+        }
+    </script>
+</body>
+</html>

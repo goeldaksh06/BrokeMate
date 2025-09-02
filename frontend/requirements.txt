@@ -1,0 +1,19 @@
+# Core FastAPI stack
+fastapi==0.116.1
+uvicorn==0.22.0
+
+# Database
+sqlalchemy[asyncio]==2.0.43
+aiosqlite==0.21.0
+
+# Authentication & security
+passlib[bcrypt]==1.7.4
+itsdangerous==2.2.0
+python-multipart==0.0.20
+
+# Templates / frontend serving
+jinja2==3.1.6
+
+# Optional: include only if using sessions or middleware
+starlette==0.47.0  # compatible with FastAPI 0.116.1
+
