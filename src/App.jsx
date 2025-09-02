@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { testAPI, getExpenses, addExpense } from "./api";
+import { testAPI, getExpenses, addExpense } from "./api.js";
+
 
 // 👈 make sure api.js is inside src/
 
